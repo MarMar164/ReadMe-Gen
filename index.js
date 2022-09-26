@@ -13,6 +13,9 @@ function generateBadgeForLicense(license) {
     else if (license === "ODbL") {
         return "[![License: ODbL](https://img.shields.io/badge/License-PDDL-brightgreen.svg)](https://opendatacommons.org/licenses/pddl/)"
     }
+    else if (license === "None"){
+        return"None"
+    }
     else {
     return "[![License: Zlib](https://img.shields.io/badge/License-Zlib-lightgrey.svg)](https://opensource.org/licenses/Zlib)"
     }
@@ -46,7 +49,7 @@ inquirer
             type: 'list',
             message: 'what Licenses are used',
             name: 'Badges',
-            choices: ["MIT", "MPL 2.0", "Zlib", "ODbL"]
+            choices: ["MIT", "MPL 2.0", "Zlib", "ODbL", "None"]
         },
         {
             type: 'input',
@@ -55,7 +58,7 @@ inquirer
         },
         {
             type: 'Test',
-            message: 'Librarrys and test needed and taken',
+            message: 'Librarys and test needed and taken',
             name: 'test',
         },
         {
@@ -76,9 +79,8 @@ inquirer
         let readMeTemplate = `# ${response.readMeName}
 ---
 ## Table of Contents
-* [Introduction](#Introduction)
+* [Introduction](#Introduction)/[Installation](#Installation)
 * [Instructions](#Instructions)
-* [Installation](#Installation)
 * [Licensing](#Licensing)
 * [Tests](#Tests)
 * [Questions](#Questions)
